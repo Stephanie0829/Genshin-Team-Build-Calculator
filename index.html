@@ -1,113 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title> Genshin Impact Team Rater </title>
-<style>
-* {
-  box-sizing: border-box;
-}
+  <html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title> Genshin Impact Team Rater </title>
+      <link rel="stylesheet" href="index.css">
+    </head>
 
-body {
-  margin: 0;
-  font-family: Arial;
-  background-image: url("Genshin-gif.gif"); 
-  background-size:cover; 
-  font-size: 40px;
-}
-
-#myVideo {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.content {
-  position: relative;
-  height: 80vh; 
-  width: 100%;
-  text-align:center; 
-  color: black;
-}
-
-#myBtn {
-  width: 200px;
-  font-size: 18px;
-  padding: 10px;
-  border: none;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-}
-
-#myBtn:hover {
-  background: #ddd;
-  color: black;
-}
-
-#title{
-   position: absolute;
-    width: 40%;
-    left: 30%;
-    top: 10%;
-}
-
-#title_img{ 
-  position: relative;
-  animation: mymove 5s;
-  width: 100%;
-  height: 79.4%;
-}
-
-@keyframes mymove {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-#start{
-  position:relative;
-  width: 300px;
-  font-size: 20px;
-  padding: 10px;
-  border: 2px solid black;
-  border-color:rgba(37,0,145,0.7);
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  
-}
-#start:hover{ 
-  background-color:rgba(117,99,236,0.5);
-  color:white;
-  animation: shake 0.5s;
-  animation-iteration-count: infinite 
-}
-@keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-</style>
-</head>
-<body>
-<div class="content">
-  <div id="title">
-      <img id="title_img" src="GenshinLogo2.png" width="700" height="400">
-      <button id="start"><a href = "creation.html">Click To Create Your Team!</a></button>
+  <body>
+    <div class="content">
+      <div id="title">
+          <img id="title_img" src="media/GenshinLogo2.png">
+          <button id="start" onclick="location.href='creation.html'">
+            GET STARTED
+          </button>
+        </div>
     </div>
-</div>
-<embed src="Genshin.mp3" autostart="true" loop="true"
-width="2" height="0">
-</embed>
-</body>
+    <embed src="media/Genshin.mp3" autostart="true" loop="true" width="2" height="0"></embed>
+  </body>
 </html>

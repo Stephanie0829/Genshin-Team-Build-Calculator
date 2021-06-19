@@ -1,1 +1,111 @@
-sdfsfd
+* {
+    box-sizing: border-box;
+  }
+
+
+  html {
+    margin: 0;
+    min-height: 100vh;
+    width: 100%
+    scroll = no;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial;
+    background-image: url("media/Genshin-gif.gif"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    font-size: 5vw;
+  }
+  
+  #myVideo {
+    object-fit: fill;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .content {
+    position: relative;
+    height: 100vh; 
+    width: 100%;
+    text-align:center; 
+    color: black;
+  }
+  
+  #myBtn {
+    width: 5vw;
+    font-size: 3vh;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+  
+
+  #title{
+    display: flex;
+    justify-content: center;
+    margin: 0vw 10vw 0vh 10vw;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    height: 70%
+  }
+  
+  #title_img{ 
+    position: relative;
+    animation: mymove 5s;
+    width: 50%;
+  }
+  
+  @keyframes mymove {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  #start{
+    position:relative;
+    width: 37vmin;
+    font-size: 2.6vh;
+    padding: 2.5vmin;
+    border: .5vh solid rgba(227, 223, 255, 0.5);
+    background:  rgba(255, 255, 255, 0.644);
+    border-radius: 2%;
+    cursor: pointer;
+    color: rgb(65, 49, 172);
+    margin-top: 5vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+  #start:hover{ 
+    background-color:rgba(122, 103, 247, 0.5);
+    color:white;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite 
+
+  }
+
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
