@@ -11,6 +11,8 @@
 body {
   margin: 0;
   font-family: Arial;
+  background-image: url("Genshin-gif.gif"); 
+  background-size:cover; 
   font-size: 40px;
 }
 
@@ -99,28 +101,12 @@ body {
 </head>
 <body>
 <div class="content">
-    <video autoplay muted loop id="myVideo">
-     <source src="Genshin.mp4" type="video/mp4">
-  </video>
   <div id="title">
       <img id="title_img" src="GenshinLogo2.png" width="700" height="400">
       <button id="start"><a href = "creation.html">Click To Create Your Team!</a></button>
     </div>
 </div>
-<script>
-var video = document.getElementById("myVideo");
-
-function myFunction() {
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
-}
-</script>
-<embed src="Genshin.mp3" autostart="true" loop="false"
+<embed src="Genshin.mp3" autostart="true" loop="true"
 width="2" height="0">
 </embed>
 </body>
