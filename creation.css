@@ -3,3 +3,97 @@ html {
     min-height: 100vh;
     width: 100%
     }
+
+    .item-top {
+        grid-area: toparea;
+        border: solid;
+      }
+    .item-panels {
+        grid-area: panels;
+        background-color: rgb(0, 128, 255);
+        border: solid;
+        display: flex;
+        width: 100vw;
+        justify-items: center;
+        justify-content: space-between;
+      }
+    /* .imgtext {
+      position: absolute;
+      background-color: rgb(255, 255, 255, .8);
+      font-size: 4.5vmin;
+      padding: 1vmin;
+      top: 55vh;
+      color: rgb(0, 139, 253, 1);
+    } */
+
+      .item-button {
+        grid-area: button;
+        background-color: rgb(255, 196, 0);
+        border: solid;
+      }
+
+      .item-rating {
+        grid-area: rating;
+        background-color: rgb(111, 0, 255);
+        border: solid;
+      }
+
+      .item-feedback {
+        grid-area: feedback;
+        background-color: rgb(255, 0, 234);
+        border: solid;
+      }
+      
+      .container {
+        margin:0;
+        display: grid;
+        grid-template-columns: auto; 
+        grid-template-rows: 10% 60% 5% 5%;
+        background-color: rgb(255, 255, 255);
+        width: 100%;
+        min-height: 100vh;  
+        grid-template-areas: 
+          "toparea"
+          "panels"
+          "button"
+          "rating"
+          "feedback";
+      }
+
+      .panel {
+          background-color: aqua;
+          width: 20vh;
+      }
+
+
+      #panel1 {
+          margin-left: 10vw;
+      }
+
+      #panel4 {
+        margin-right: 10vw;
+    }
+
+    .panelimg{
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+    }
+
+    #img1 {
+        background-image: url("media/Characters/splash-tester.png"); 
+    }
+
+    #img2 {
+        background-image: url("media/Characters/splash-tester.png"); 
+    }
+
+    #img3 {
+        background-image: url("media/Characters/splash-tester.png"); 
+    }
+
+    #img4 {
+        background-image: url("media/Characters/splash-tester.png"); 
+    }
+
