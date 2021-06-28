@@ -30,16 +30,18 @@ html {
         grid-area: button;
         background-color: transparent;
         border: solid;
+        display: flex;
+        justify-content: center;
       }
 
       .item-rating {
         grid-area: rating;
         background-color:transparent;
         border: solid;
-        background-image: url("media/Utilities/5\ stars.png"); 
-        background-size: contain;
-        background-repeat: no-repeat;
-        justify-items:center; 
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        overflow: hidden;
       }
 
       .item-feedback {
@@ -52,7 +54,7 @@ html {
         margin:0;
         display: grid;
         grid-template-columns: auto; 
-        grid-template-rows: 10% 60% 5% 5%;
+        grid-template-rows: 10% 60% 5% 10%;
         background-image: url("media/panel-background.png");
         width: 100%;
         min-height: 100vh;  
@@ -67,6 +69,10 @@ html {
       .panel {
           background-color: transparent;
           width: 20vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: white;
       }
 
 
@@ -81,7 +87,7 @@ html {
     .panelimg{
         background-size: cover;
         background-repeat: no-repeat;
-        border: solid black; 
+        border: solid rgb(220, 220, 220); 
         height: 80%;
         width: 100%;
     }
@@ -102,3 +108,19 @@ html {
         background-image: url("media/Characters/splash-tester.png"); 
     }
 
+    #rating-img {
+      width: 38vmin;
+      display: none;
+    }
+
+    .dropbtn {
+      padding-right: 2vmin;
+      padding-left: 2vmin;
+    }
+
+    #calcbtn {
+      color: rgb(4, 67, 99);
+      background-color: rgba(224, 224, 224, 1);
+      border-radius: 1vmin;
+      border: none;
+    }

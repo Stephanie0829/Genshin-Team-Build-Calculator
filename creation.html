@@ -4,6 +4,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title></title>
       <link rel="stylesheet" href="creation.css">
+      <script src="script.js"></script>
     </head>
 
   <body class="container">
@@ -11,30 +12,32 @@
       <div class = "item-panels">
         <div class="panel" id="panel1">
           <p>Position1</p>
-          <button> ^ </button>
+          <button class = "dropbtn"> ^ </button>
           <div class = "panelimg" id="img1"></div>
         </div>
         <div class="panel" id="panel2">
           <p>Position2</p>
-          <button> ^ </button>
+          <button class = "dropbtn"> ^ </button>
           <div class = "panelimg" id="img2"></div>
         </div>
         <div class="panel" id="panel3">
           <p>Position3</p>
-          <button> ^ </button>
+          <button class = "dropbtn"> ^ </button>
           <div class = "panelimg" id="img3"></div>
         </div>
         <div class="panel" id="panel4">
           <p>Position4</p>
-          <button> ^ </button>
+          <button class = "dropbtn"> ^ </button>
           <div class = "panelimg" id="img4"></div>
         </div>
       </div>
       <div class="item-button">
-        <button>Calculate</button>
+        <button id = "calcbtn" onclick = "calcscore()"">Calculate</button>
       </div>
       
-      <div class="item-rating"></div>
+      <div class="item-rating">
+        <img id="rating-img" src="media/Utilities/5stars.png">
+      </div>
       
       <div class="item-feedback">feedback text</div>
   </body>
