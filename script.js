@@ -1,3 +1,22 @@
+$(document).ready(function(){
+	$("#panel1 .dropdown button").click(function(){
+		 changeImage(this, 1);
+	});
+	$("#panel2 .dropdown button").click(function(){
+		 changeImage(this, 2);
+	});
+	$("#panel3 .dropdown button").click(function(){
+		 changeImage(this, 3);
+	});
+	$("#panel4 .dropdown button").click(function(){
+		 changeImage(this, 4);
+	});
+});
+
+function changeImage(obj, panelNo){
+	    document.getElementById("char" + panelNo).innerHTML = $(obj).text();
+		document.getElementById("img" + panelNo).style.backgroundImage = "url('media/Characters/Gacha-Splashes/" + $(obj).text() + ".png')";
+}
 function calcscore() {
     var score = 0;
 
@@ -5,6 +24,7 @@ function calcscore() {
     // call function to change rating html
     calcRating(score);
 }
+
 
 function calcRating(score){
     var starimg = document.getElementById("rating-img");
