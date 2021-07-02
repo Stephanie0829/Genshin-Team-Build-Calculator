@@ -177,18 +177,26 @@ html {
 	}
 	.options{
 		padding:0;
-		margin:0;
+    margin:0;
 	}
 	.char_name{
-		list-style-type:none;
-		margin: 5% auto;
+    list-style-type:none;
+    margin: 0;
+    padding: 5% auto;
+    border: none;
 	}
 	
 	.options button{
 		font-family:'Benne', 'Times New Roman', serif;
 		width: 100%;
-		border: none;
-		padding: 0;
-		background: transparent;
+    background: transparent;
+    border:  none;
 	}
-	
+  
+  li:hover{
+    background-color: rgb(231, 231, 231);
+  }
+
+  #calcbtn:hover {
+    background-color: rgb(190, 190, 190);
+  }

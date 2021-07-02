@@ -1,21 +1,44 @@
+var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
+
 $(document).ready(function(){
 	$("#panel1 .dropdown button").click(function(){
+        resetOptions(1);
 		 changeImage(this, 1);
 	});
 	$("#panel2 .dropdown button").click(function(){
+         resetOptions(2);
 		 changeImage(this, 2);
 	});
 	$("#panel3 .dropdown button").click(function(){
+         resetOptions(3);
 		 changeImage(this, 3);
 	});
 	$("#panel4 .dropdown button").click(function(){
+         resetOptions(4);
 		 changeImage(this, 4);
 	});
 });
 
+function resetOptions(panelNo){
+        var lastCharacter = lastChar[panelNo-1];
+        document.getElementById(lastCharacter + 1).style.display = "list-item";
+        document.getElementById(lastCharacter + 2).style.display = "list-item";
+        document.getElementById(lastCharacter + 3).style.display = "list-item";
+        document.getElementById(lastCharacter + 4).style.display = "list-item";
+}
+
 function changeImage(obj, panelNo){
-	    document.getElementById("char" + panelNo).innerHTML = $(obj).text();
-		document.getElementById("img" + panelNo).style.backgroundImage = "url('media/Characters/Gacha-Splashes/" + $(obj).text() + ".png')";
+        var characterText = $(obj).text();
+        lastChar[panelNo-1]= characterText;
+        document.getElementById("char" + panelNo).innerHTML = characterText;
+        document.getElementById("img" + panelNo).style.backgroundImage = "url('media/Characters/Gacha-Splashes/" + characterText + ".png')";
+
+        //set other dropdown options to none if a character is selected
+        for(var i = 1; i<=4; i++){
+            if(panelNo!=i){
+                document.getElementById(characterText + i).style.display = "none";
+            }
+        }
 }
 function calcscore() {
     var score = 0;
