@@ -6,12 +6,9 @@ html {
 
     .item-top {
         grid-area: toparea;
-        border: solid;
       }
     .item-panels {
         grid-area: panels;
-        background-image: url("media/panel-background.png");
-        border: solid;
         display: flex;
         width: 100vw;
         justify-items: center;
@@ -28,17 +25,15 @@ html {
 
       .item-button {
         grid-area: button;
-        background-color: transparent;
-        border: solid;
+        background-color: rgba(0,43,38, 0.445);
         display: flex;
         justify-content: center;
       }
 
       .item-rating {
         grid-area: rating;
-        background-color:transparent;
-        border: solid;
         display: flex;
+        background-color: rgba(0,43,38, 0.445);
         justify-content: center;
         justify-items: center;
         overflow: hidden;
@@ -46,16 +41,18 @@ html {
 
       .item-feedback {
         grid-area: feedback;
-        background-color: transparenti;
-        border: solid;
+        color:white; 
+        background-color: rgba(0,43,38);
       }
       
       .container {
         margin:0;
         display: grid;
         grid-template-columns: auto; 
-        grid-template-rows: 10% 60% 5% 10%;
-        background-image: url("media/panel-background.png");
+        grid-template-rows: 10% 65% 5% 10%;
+        background-image: url("media/spooky.png");
+        background-repeat: repeat no-repeat;
+        background-size: cover;  
         width: 100%;
         min-height: 100vh;  
         grid-template-areas: 
@@ -88,24 +85,24 @@ html {
         background-size: cover;
         background-repeat: no-repeat;
         border: solid rgb(220, 220, 220); 
-        height: 80%;
+        height: 81%;
         width: 100%;
     }
 
     #img1 {
-        background-image: url("media/Characters/splash-tester.png"); 
+        background-image: url("media/Characters/Gacha-Splashes/Xiao.png");
     }
 
     #img2 {
-        background-image: url("media/Characters/splash-tester.png"); 
+       background-image: url("media/Characters/Gacha-Splashes/Albedo.png"); 
     }
 
     #img3 {
-        background-image: url("media/Characters/splash-tester.png"); 
+       background-image: url("media/Characters/Gacha-Splashes/Kazuha.png"); 
     }
 
     #img4 {
-        background-image: url("media/Characters/splash-tester.png"); 
+      background-image: url("media/Characters/Gacha-Splashes/Qiqi.png");   
     }
 
     #rating-img {
@@ -113,9 +110,56 @@ html {
       display: none;
     }
 
-    .dropbtn {
+  .dropbtn {
+      background-color: rgb(179, 193, 201);
+      border:none; 
+      cursor:pointer; 
       padding-right: 2vmin;
       padding-left: 2vmin;
+    }
+
+	.panel{
+		font-family:'Benne', 'Times New Roman', serif;
+	}
+    .dropdown{ 
+      display: inline-block; 
+	  position:relative;
+	  width: 80%;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+	  background-color:#fff;
+	  margin:10% 0;
+	  color:#000;
+	  text-align:center;
+	  border: 1px solid #000;
+    }
+
+    .dropdown-block{  
+	  position:absolute;
+      z-index: 1; 
+	  width:100%;
+	  background-color:#fff;
+	  display:none;
+		overflow-y:scroll;
+		height: 500%; 
+    }
+
+    .dropdown-text{ 
+      color:black; 
+      padding: 12px 16px; 
+      text-decoration:none; 
+      display:block; 
+    }
+
+    .dropdown-text:hover{ 
+      background-color:rgb(128, 163, 144);
+    }
+
+    .dropdown:hover .dropdown-block{ 
+        display:block; 
+    }
+
+    .dropdown:hover .dropbtn{ 
+      background-color: rgb(47, 124, 163);
     }
 
     #calcbtn {
@@ -124,3 +168,27 @@ html {
       border-radius: 1vmin;
       border: none;
     }
+	
+	.role_name{
+		 margin: 10%;
+	}
+	.selected{
+		margin:5%;
+	}
+	.options{
+		padding:0;
+		margin:0;
+	}
+	.char_name{
+		list-style-type:none;
+		margin: 5% auto;
+	}
+	
+	.options button{
+		font-family:'Benne', 'Times New Roman', serif;
+		width: 100%;
+		border: none;
+		padding: 0;
+		background: transparent;
+	}
+	
