@@ -4,33 +4,215 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title></title>
       <link rel="stylesheet" href="creation.css">
+	  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Benne&display=swap" rel="stylesheet">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="script.js"></script>
+	  
     </head>
 
   <body class="container">
-      <!--<header><h6>Random Text</h6></header>-->
+      <!--<header><h6>Create Your Team!</h6></header>-->
       <div class = "item-panels">
+        <!--Main DPS Panel-->
         <div class="panel" id="panel1">
-          <p>Position1</p>
-          <button class = "dropbtn"> ^ </button>
-          <div class = "panelimg" id="img1"></div>
+          <p class = "role_name">Main DPS</p>
+		  <div class = "panelimg" id="img1"></div>
+          <!--Dropdown Menu for Main DPS-->
+          <div class="dropdown">
+         <!-- <button class = "dropbtn"> ^ </button> -->
+		    <p class = "selected" class = "char_name" id = "char1">Choose a character</p>
+          <div class="dropdown-block" id="content">
+            <ul class = "options"> 
+			  <li class = "char_name" ><button>Bennett</button></li>
+              <li class = "char_name" ><button>Ganyu</button></li>
+              <li class = "char_name" ><button>Hu Tao</button></li>
+              <li class = "char_name" ><button>Venti</button></li>
+              <li class = "char_name" ><button>Zhongli</button></li>
+              <li class = "char_name" ><button>Xingqiu</button></li>
+              <li class = "char_name" ><button>Albedo</button></li>
+              <li class = "char_name" ><button>Diluc</button></li>
+              <li class = "char_name" ><button>Diona</button></li>
+              <li class = "char_name" ><button>Eula</button></li>
+              <li class = "char_name" ><button>Jean</button></li>
+              <li class = "char_name" ><button>Kazuha</button></li>
+              <li class = "char_name" ><button>Klee</button></li>
+              <li class = "char_name" ><button>Mona</button></li>
+              <li class = "char_name" ><button>Qiqi</button></li>
+              <li class = "char_name" ><button>Sucrose</button></li>
+              <li class = "char_name" ><button>Tartaglia</button></li>
+              <li class = "char_name" ><button>Xiao</button></li>
+              <li class = "char_name" ><button>Barbara</button></li>
+              <li class = "char_name" ><button>Beidou</button></li>
+              <li class = "char_name" ><button>Chongyun</button></li>      
+              <li class = "char_name" ><button>Fischl</button></li>
+              <li class = "char_name" ><button>Kaeya</button></li>
+              <li class = "char_name" ><button>Keqing</button></li>
+              <li class = "char_name" ><button>Ningguang</button></li>
+              <li class = "char_name" ><button>Noelle</button></li>
+              <li class = "char_name" ><button>Razor</button></li>
+              <li class = "char_name" ><button>Rosaria</button></li>    
+              <li class = "char_name" ><button>Xiangling</button></li>
+              <li class = "char_name" ><button>Yanfei</button></li>
+              <li class = "char_name" ><button>Lisa</button></li>
+              <li class = "char_name" ><button>Traveler(Geo)</button></li>
+              <li class = "char_name" ><button>Xinyan</button></li>
+              <li class = "char_name" ><button>Amber</button></li>
+              <li class = "char_name" ><button>Traveler(Anemo)</button></li>
+			</ul>
+          </div>
         </div>
+        </div>
+
+        <!--Sub DPS Panel-->
         <div class="panel" id="panel2">
-          <p>Position2</p>
-          <button class = "dropbtn"> ^ </button>
-          <div class = "panelimg" id="img2"></div>
+          <p class = "role_name">Sub DPS</p>
+		  <div class = "panelimg" id="img2"></div>
+          <!--Dropdown Menu for Sub DPS-->
+          <div class="dropdown">
+		  <p class = "selected" class = "char_name" id = "char2">Choose a character</p>
+          <div class="dropdown-block" id="content">
+            <ul class = "options"> 
+			  <li class = "char_name" ><button>Bennett</button></li>
+              <li class = "char_name" ><button>Ganyu</button></li>
+              <li class = "char_name" ><button>Hu Tao</button></li>
+              <li class = "char_name" ><button>Venti</button></li>
+              <li class = "char_name" ><button>Zhongli</button></li>
+              <li class = "char_name" ><button>Xingqiu</button></li>
+              <li class = "char_name" ><button>Albedo</button></li>
+              <li class = "char_name" ><button>Diluc</button></li>
+              <li class = "char_name" ><button>Diona</button></li>
+              <li class = "char_name" ><button>Eula</button></li>
+              <li class = "char_name" ><button>Jean</button></li>
+              <li class = "char_name" ><button>Kazuha</button></li>
+              <li class = "char_name" ><button>Klee</button></li>
+              <li class = "char_name" ><button>Mona</button></li>
+              <li class = "char_name" ><button>Qiqi</button></li>
+              <li class = "char_name" ><button>Sucrose</button></li>
+              <li class = "char_name" ><button>Tartaglia</button></li>
+              <li class = "char_name" ><button>Xiao</button></li>
+              <li class = "char_name" ><button>Barbara</button></li>
+              <li class = "char_name" ><button>Beidou</button></li>
+              <li class = "char_name" ><button>Chongyun</button></li>      
+              <li class = "char_name" ><button>Fischl</button></li>
+              <li class = "char_name" ><button>Kaeya</button></li>
+              <li class = "char_name" ><button>Keqing</button></li>
+              <li class = "char_name" ><button>Ningguang</button></li>
+              <li class = "char_name" ><button>Noelle</button></li>
+              <li class = "char_name" ><button>Razor</button></li>
+              <li class = "char_name" ><button>Rosaria</button></li>    
+              <li class = "char_name" ><button>Xiangling</button></li>
+              <li class = "char_name" ><button>Yanfei</button></li>
+              <li class = "char_name" ><button>Lisa</button></li>
+              <li class = "char_name" ><button>Traveler(Geo)</button></li>
+              <li class = "char_name" ><button>Xinyan</button></li>
+              <li class = "char_name" ><button>Amber</button></li>
+              <li class = "char_name" ><button>Traveler(Anemo)</button></li>
+			</ul>
+          </div>
         </div>
+        </div>
+
+        <!--Support Panel-->
         <div class="panel" id="panel3">
-          <p>Position3</p>
-          <button class = "dropbtn"> ^ </button>
-          <div class = "panelimg" id="img3"></div>
+          <p class = "role_name">Support</p>
+		  <div class = "panelimg" id="img3"></div>
+        <!--Dropdown menu for Support-->
+        <div class="dropdown">
+		  <p class = "selected" class = "char_name" id = "char3">Choose a character</p>
+          <div class="dropdown-block" id="content">
+            <ul class = "options"> 
+			  <li class = "char_name" ><button>Bennett</button></li>
+              <li class = "char_name" ><button>Ganyu</button></li>
+              <li class = "char_name" ><button>Hu Tao</button></li>
+              <li class = "char_name" ><button>Venti</button></li>
+              <li class = "char_name" ><button>Zhongli</button></li>
+              <li class = "char_name" ><button>Xingqiu</button></li>
+              <li class = "char_name" ><button>Albedo</button></li>
+              <li class = "char_name" ><button>Diluc</button></li>
+              <li class = "char_name" ><button>Diona</button></li>
+              <li class = "char_name" ><button>Eula</button></li>
+              <li class = "char_name" ><button>Jean</button></li>
+              <li class = "char_name" ><button>Kazuha</button></li>
+              <li class = "char_name" ><button>Klee</button></li>
+              <li class = "char_name" ><button>Mona</button></li>
+              <li class = "char_name" ><button>Qiqi</button></li>
+              <li class = "char_name" ><button>Sucrose</button></li>
+              <li class = "char_name" ><button>Tartaglia</button></li>
+              <li class = "char_name" ><button>Xiao</button></li>
+              <li class = "char_name" ><button>Barbara</button></li>
+              <li class = "char_name" ><button>Beidou</button></li>
+              <li class = "char_name" ><button>Chongyun</button></li>      
+              <li class = "char_name" ><button>Fischl</button></li>
+              <li class = "char_name" ><button>Kaeya</button></li>
+              <li class = "char_name" ><button>Keqing</button></li>
+              <li class = "char_name" ><button>Ningguang</button></li>
+              <li class = "char_name" ><button>Noelle</button></li>
+              <li class = "char_name" ><button>Razor</button></li>
+              <li class = "char_name" ><button>Rosaria</button></li>    
+              <li class = "char_name" ><button>Xiangling</button></li>
+              <li class = "char_name" ><button>Yanfei</button></li>
+              <li class = "char_name" ><button>Lisa</button></li>
+              <li class = "char_name" ><button>Traveler(Geo)</button></li>
+              <li class = "char_name" ><button>Xinyan</button></li>
+              <li class = "char_name" ><button>Amber</button></li>
+              <li class = "char_name" ><button>Traveler(Anemo)</button></li>
+			</ul>
+          </div>
         </div>
+        </div>
+         
+        <!--Healer Panel-->
         <div class="panel" id="panel4">
-          <p>Position4</p>
-          <button class = "dropbtn"> ^ </button>
-          <div class = "panelimg" id="img4"></div>
+          <p class = "role_name">Healer</p>
+		  <div class = "panelimg" id="img4"></div>
+          <!--Dropdown Menu for Healer-->
+          <div class="dropdown">
+		  <p class = "selected" class = "char_name" id = "char4">Choose a character</p>
+         <div class="dropdown-block" id="content">
+            <ul class = "options"> 
+			  <li class = "char_name" ><button>Bennett</button></li>
+              <li class = "char_name" ><button>Ganyu</button></li>
+              <li class = "char_name" ><button>Hu Tao</button></li>
+              <li class = "char_name" ><button>Venti</button></li>
+              <li class = "char_name" ><button>Zhongli</button></li>
+              <li class = "char_name" ><button>Xingqiu</button></li>
+              <li class = "char_name" ><button>Albedo</button></li>
+              <li class = "char_name" ><button>Diluc</button></li>
+              <li class = "char_name" ><button>Diona</button></li>
+              <li class = "char_name" ><button>Eula</button></li>
+              <li class = "char_name" ><button>Jean</button></li>
+              <li class = "char_name" ><button>Kazuha</button></li>
+              <li class = "char_name" ><button>Klee</button></li>
+              <li class = "char_name" ><button>Mona</button></li>
+              <li class = "char_name" ><button>Qiqi</button></li>
+              <li class = "char_name" ><button>Sucrose</button></li>
+              <li class = "char_name" ><button>Tartaglia</button></li>
+              <li class = "char_name" ><button>Xiao</button></li>
+              <li class = "char_name" ><button>Barbara</button></li>
+              <li class = "char_name" ><button>Beidou</button></li>
+              <li class = "char_name" ><button>Chongyun</button></li>      
+              <li class = "char_name" ><button>Fischl</button></li>
+              <li class = "char_name" ><button>Kaeya</button></li>
+              <li class = "char_name" ><button>Keqing</button></li>
+              <li class = "char_name" ><button>Ningguang</button></li>
+              <li class = "char_name" ><button>Noelle</button></li>
+              <li class = "char_name" ><button>Razor</button></li>
+              <li class = "char_name" ><button>Rosaria</button></li>    
+              <li class = "char_name" ><button>Xiangling</button></li>
+              <li class = "char_name" ><button>Yanfei</button></li>
+              <li class = "char_name" ><button>Lisa</button></li>
+              <li class = "char_name" ><button>Traveler(Geo)</button></li>
+              <li class = "char_name" ><button>Xinyan</button></li>
+              <li class = "char_name" ><button>Amber</button></li>
+              <li class = "char_name" ><button>Traveler(Anemo)</button></li>
+			</ul>
+          </div>
+        </div>
         </div>
       </div>
+
       <div class="item-button">
         <button id = "calcbtn" onclick = "calcscore()"">Calculate</button>
       </div>
