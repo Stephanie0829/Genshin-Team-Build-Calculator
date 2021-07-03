@@ -35,11 +35,12 @@ function resetOptions(panelNo){
 }
 
 // function that changes all 4 panels to display/not display option for a character
-function changeAllPanels(charName, displayAttribute){
-    document.getElementById(charName + 1).style.display = displayAttribute;
-    document.getElementById(charName + 2).style.display = displayAttribute;
-    document.getElementById(charName + 3).style.display = displayAttribute;
-    document.getElementById(charName + 4).style.display = displayAttribute;
+function changeAllPanels(charName, displayAttribute, panelNo=5){
+    for(var i = 1; i<=4; i++){
+        if(i!=panelNo){
+            document.getElementById(charName + i).style.display = displayAttribute;
+        }
+    }
 }
 
 //change image and text upon selection of dropdown option
@@ -52,11 +53,11 @@ function changeImage(obj, panelNo){
         //remove dropdown options for selected character from all panels
         changeAllPanels(characterText, "none");
 
-        //make sure only one traveler can be selected (remove dropdown options for other traveler from all panels)
+        //make sure only one traveler can be selected (remove dropdown options for other traveler from all panels not itself)
         if(characterText == "Traveler(Anemo)"){
-            changeAllPanels("Traveler(Geo)", "none");
+            changeAllPanels("Traveler(Geo)", "none", panelNo);
         } else if (characterText == "Traveler(Geo)"){
-            changeAllPanels("Traveler(Anemo)", "none");
+            changeAllPanels("Traveler(Anemo)", "none", panelNo);
         }
 }
 
