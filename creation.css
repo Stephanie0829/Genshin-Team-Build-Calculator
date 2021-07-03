@@ -49,7 +49,7 @@ html {
         margin:0;
         display: grid;
         grid-template-columns: auto; 
-        grid-template-rows: 10% 65% 5% 10%;
+        grid-template-rows: 5% 70% 5% 10% 20%;
         background-image: url("media/spooky.png");
         background-repeat: repeat no-repeat;
         background-size: cover;  
@@ -85,7 +85,7 @@ html {
         background-size: cover;
         background-repeat: no-repeat;
         border: solid rgb(220, 220, 220); 
-        height: 81%;
+        height: 73%;
         width: 100%;
     }
 
@@ -140,7 +140,7 @@ html {
 	  background-color:#fff;
 	  display:none;
 		overflow-y:scroll;
-		height: 500%; 
+		height: 400%; 
     }
 
     .dropdown-text{ 
@@ -170,7 +170,8 @@ html {
     }
 	
 	.role_name{
-		 margin: 10%;
+    margin: none;
+		 /* margin: 10%; commented out for better mobile experience*/
 	}
 	.selected{
 		margin:5%;
