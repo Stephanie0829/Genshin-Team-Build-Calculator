@@ -43,13 +43,15 @@ html {
         grid-area: feedback;
         color:white; 
         background-color: rgba(0,43,38);
+        text-align: center;
+        padding-top: 2vh;
       }
       
       .container {
         margin:0;
         display: grid;
         grid-template-columns: auto; 
-        grid-template-rows: 5% 70% 5% 10% 20%;
+        grid-template-rows: 5% 70% 5% 8% 22%;
         background-image: url("media/spooky.png");
         background-repeat: repeat no-repeat;
         background-size: cover;  
@@ -106,7 +108,7 @@ html {
     }
 
     #rating-img {
-      width: 38vmin;
+      width: 35vmin;
       display: none;
     }
 
@@ -137,7 +139,7 @@ html {
 	  position:absolute;
       z-index: 1; 
 	  width:100%;
-	  background-color:#fff;
+	  background-color:rgb(247, 247, 247);
 	  display:none;
 		overflow-y:scroll;
 		height: 400%; 
