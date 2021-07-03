@@ -1,5 +1,7 @@
+//array holding the last selected character
 var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
 
+//function that handles user interaction with dropdown options
 $(document).ready(function(){
 	$("#panel1 .dropdown button").click(function(){
         resetOptions(1);
@@ -20,26 +22,45 @@ $(document).ready(function(){
 });
 
 function resetOptions(panelNo){
+        //display all dropdown options for the previously selected character
         var lastCharacter = lastChar[panelNo-1];
-        document.getElementById(lastCharacter + 1).style.display = "list-item";
-        document.getElementById(lastCharacter + 2).style.display = "list-item";
-        document.getElementById(lastCharacter + 3).style.display = "list-item";
-        document.getElementById(lastCharacter + 4).style.display = "list-item";
+        changeAllPanels(lastCharacter, "list-item");
+
+        //display second traveler that was removed upon selection of first traveler
+        if(lastCharacter == "Traveler(Anemo)") {
+            changeAllPanels("Traveler(Geo)", "list-item");
+        } else if( lastCharacter == "Traveler(Geo)") {
+            changeAllPanels("Traveler(Anemo)", "list-item");
+        }
 }
 
+// function that changes all 4 panels to display/not display option for a character
+function changeAllPanels(charName, displayAttribute){
+    document.getElementById(charName + 1).style.display = displayAttribute;
+    document.getElementById(charName + 2).style.display = displayAttribute;
+    document.getElementById(charName + 3).style.display = displayAttribute;
+    document.getElementById(charName + 4).style.display = displayAttribute;
+}
+
+//change image and text upon selection of dropdown option
 function changeImage(obj, panelNo){
         var characterText = $(obj).text();
         lastChar[panelNo-1]= characterText;
         document.getElementById("char" + panelNo).innerHTML = characterText;
         document.getElementById("img" + panelNo).style.backgroundImage = "url('media/Characters/Gacha-Splashes/" + characterText + ".png')";
 
-        //set other dropdown options to none if a character is selected
-        for(var i = 1; i<=4; i++){
-            if(panelNo!=i){
-                document.getElementById(characterText + i).style.display = "none";
-            }
+        //remove dropdown options for selected character from all panels
+        changeAllPanels(characterText, "none");
+
+        //make sure only one traveler can be selected (remove dropdown options for other traveler from all panels)
+        if(characterText == "Traveler(Anemo)"){
+            changeAllPanels("Traveler(Geo)", "none");
+        } else if (characterText == "Traveler(Geo)"){
+            changeAllPanels("Traveler(Anemo)", "none");
         }
 }
+
+//algorithm that calculates a team rating
 function calcscore() {
     var score = 0;
 
@@ -48,7 +69,7 @@ function calcscore() {
     calcRating(score);
 }
 
-
+//function to change interface (number stars) based on score
 function calcRating(score){
     var starimg = document.getElementById("rating-img");
     starimg.style.display = "block";
