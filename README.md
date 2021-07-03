@@ -7,7 +7,7 @@ Genshin Impact calculation widget allowing users to select characters, and calcu
 ## Implementation of calculation
 * Points tallied for certain factors, weighted, and categorized on a scale of 1-5
 ## Future thoughts
-* Could imporove upon by including data analysis on specific attributes of characters through simulation against enemies
+* Could improve upon by including data analysis on specific attributes of characters through simulation against enemies
 * Can factor in elemental damage attacks intrinsic to specific characters
 ## Sources for media:
   * 5-star rating image supplied by the authors of this project (used ibisPaint X)
