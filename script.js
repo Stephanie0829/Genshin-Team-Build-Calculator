@@ -1,7 +1,28 @@
 //array holding the last selected character
 var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
-
 //function that handles user interaction with dropdown options
+let characters = new Map();
+characters.set("Keqing", {Element: "Electro", mdps: "S", sdps : "NA", support: "NA"});
+characters.set("Klee", {Element: "Pyro", mdps: "S", sdps : "S", support: "B"});
+characters.set("Lisa", {Element: "Electro", mdps: "NA", sdps : "C", support: "C"});
+characters.set("Mona", {Element: "Hydro", mdps: "B", sdps : "S", support: "S"});
+characters.set("Ningguang", {Element: "Geo", mdps: "A", sdps : "NA", support: "C"});
+characters.set("Noelle", {Element: "Geo", mdps: "A", sdps : "NA", support: "B"});
+characters.set("Qiqi", {Element: "Cryo", mdps: "NA", sdps : "NA", support: "A"});
+characters.set("Razor", {Element: "Electro", mdps: "A", sdps : "NA", support: "NA"});
+characters.set("Rosaria", {Element: "Cryo", mdps: "C", sdps : "A", support: "B"});
+characters.set("Sucrose", {Element: "Anemo", mdps: "NA", sdps : "A", support: "SS"});
+characters.set("Tartaglia", {Element: "Hydro", mdps: "S", sdps : "S", support: "A"});
+characters.set("Traveler(Anemo)", {Element: "Anemo", mdps: "NA", sdps : "C", support: "NA"});
+characters.set("Traveler(Geo)", {Element: "Geo", mdps: "NA", sdps : "C", support: "B"});
+characters.set("Venti", {Element: "Anemo", mdps: "NA", sdps : "SS", support: "SS"});
+characters.set("Xiangling", {Element: "Pyro", mdps: "NA", sdps : "A", support: "NA"});
+characters.set("Xiao", {Element: "Anemo", mdps: "SS", sdps : "NA", support: "NA"});
+characters.set("Xingqiu", {Element: "Hydro", mdps: "NA", sdps : "SS", support: "A"});
+characters.set("Xinyan", {Element: "Pyro", mdps: "B", sdps : "NA", support: "A"});
+characters.set("Yanfei", {Element: "Pyro", mdps: "A", sdps : "NA", support: "NA"});
+characters.set("Zhongli", {Element: "Geo", mdps: "NA", sdps : "S", support: "SS"});
+
 $(document).ready(function(){
 	$("#panel1 .dropdown button").click(function(){
         resetOptions(1);
@@ -34,7 +55,8 @@ function resetOptions(panelNo){
         }
 }
 
-// function that changes all 4 panels to display/not display option for a character
+// function that changes 3/4 panels to display/not display option for a character
+//panelNo by default is 5 for applying change to all 4 panels
 function changeAllPanels(charName, displayAttribute, panelNo=5){
     for(var i = 1; i<=4; i++){
         if(i!=panelNo){
