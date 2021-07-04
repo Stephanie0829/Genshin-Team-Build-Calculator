@@ -2,6 +2,21 @@
 var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
 //function that handles user interaction with dropdown options
 let characters = new Map();
+characters.set("Albedo",{Element: "G", mdps:"N/A",sdps:"SS",support:"SS"}); 
+characters.set("Amber",{Element: "P", mdps:"C",sdps:"C",support:"N/A"});
+characters.set("Barbara",{Element: "H", mdps:"N/A",sdps:"N/A",support:"A"});  
+characters.set("Beidou",{Element: "E", mdps:"B",sdps:"B",support:"N/A"});
+characters.set("Bennett",{Element: "P", mdps:"N/A",sdps:"N/A",support:"SS"});  
+characters.set("Chongyun",{Element: "C", mdps:"C",sdps:"A",support:"B"}); 
+characters.set("Diluc",{Element: "P", mdps:"S",sdps:"N/A",support:"N/A"});
+characters.set("Diona",{Element: "C", mdps:"N/A",sdps:"N/A",support:"SS"});
+characters.set("Eula",{Element: "C", mdps:"SS",sdps:"N/A",support:"N/A"}); 
+characters.set("Fischl",{Element: "E", mdps:"B",sdps:"S",support:"N/A"});
+characters.set("Ganyu",{Element: "C", mdps:"SS",sdps:"SS",support:"N/A"});
+characters.set("Hu Tao",{Element: "P", mdps:"SS",sdps:"N/A",support:"N/A"});
+characters.set("Jean",{Element: "A", mdps:"C",sdps:"N/A",support:"S"});
+characters.set("Kaeya",{Element: "C", mdps:"N/A",sdps:"A",support:"N/A"});    
+characters.set("Kazuha",{Element: "A", mdps:"N/A",sdps:"SS",support:"SS"}); 
 characters.set("Keqing", {Element: "Electro", mdps: "S", sdps : "NA", support: "NA"});
 characters.set("Klee", {Element: "Pyro", mdps: "S", sdps : "S", support: "B"});
 characters.set("Lisa", {Element: "Electro", mdps: "NA", sdps : "C", support: "C"});
