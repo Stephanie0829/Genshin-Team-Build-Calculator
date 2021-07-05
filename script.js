@@ -65,6 +65,53 @@ $(document).ready(function(){
          select4 = true;
 	});
 });
+function calculateElementalReaction(){
+    var elementsInTeam = [characters.get(lastChar[0]).Element,characters.get(lastChar[1]).Element, 
+                        characters.get(lastChar[2]).Element,characters.get(lastChar[3]).Element];
+    var reaction = new Boolean(false);  
+    console.log(score);
+    for(var i= 0; i<4;i++){ 
+        console.log("Current character: "+elementsInTeam[i])
+        if(elementsInTeam[i] == "Anemo"){ 
+            for(var j= 0; j<4;j++){ 
+              if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
+                 score+=30; 
+                 console.log("This has met");
+                 reaction =true; 
+              }       
+            }  
+        }else if(elementsInTeam[i] == "Geo"){ 
+            for(var j= 0; j<4;j++){ 
+                if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
+                   score+=30; 
+                   reaction =true; 
+                }       
+              }  
+        }else if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
+            for(var j= 0; j<4;j++){ 
+                if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro")|| (elementsInTeam[j] == "Electro" && elementsInTeam[i] == "Cryo") && j !=i){
+                   score+=30; 
+                   reaction =true; 
+                }       
+              }  
+        }else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
+            for(var j= 0; j<4;j++){ 
+              if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") || (elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Hydro") && j !=i){
+                 score+=45; 
+                 reaction =true; 
+              }       
+            }  
+        }else if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
+            for(var j= 0; j<4;j++){ 
+              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") || (elementsInTeam[i] == "Cryo" && elementsInTeam[j] == "Pyro") && j !=i){
+                 score+=40; 
+                 reaction =true; 
+              }       
+            }  
+        }
+    }
+    console.log(score); 
+}
 
 function resetOptions(panelNo){
         score = 0;
