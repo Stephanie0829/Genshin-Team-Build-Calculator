@@ -178,6 +178,8 @@ function calcscore() {
             } else { //element is Pyro
                 numPyro++;
             }
+            //determine elemental reactions
+            calculateElementalReaction(); 
         }
 
         //add points for elemental resonance
