@@ -5,8 +5,8 @@ Genshin Impact calculation widget allowing users to select characters, and calcu
   * insert text
     * insert text
 * Sources:
-* Overall layout: used flexbox and grid
-* JQuery and javascript used for handling dropdown user interactions
+  * Overall layout: used flexbox and grid
+  * JQuery and javascript used for handling dropdown user interactions
 ## Implementation of calculation
 * Points tallied for certain factors, weighted, and categorized on a scale of 1-5
 ## Future thoughts
