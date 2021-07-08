@@ -1,11 +1,13 @@
 //array holding the last selected character
 var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
+//global score variable used for calculating stars
 var score = 0;
+//booleans to determine if all characters selected
 var select1 = false;
 var select2 = false;
 var select3 = false;
 var select4 = false;
-//function that handles user interaction with dropdown options
+//map holding the characteristics of certain characters
 let characters = new Map();
 characters.set("Albedo",{Element: "Geo", mdps: "N/A", sdps: "SS", support: "SS"}); 
 characters.set("Amber",{Element: "Pyro", mdps:"C",sdps:"C",support:"N/A"});
@@ -43,6 +45,7 @@ characters.set("Xinyan", {Element: "Pyro", mdps: "B", sdps : "N/A", support: "A"
 characters.set("Yanfei", {Element: "Pyro", mdps: "A", sdps : "N/A", support: "N/A"});
 characters.set("Zhongli", {Element: "Geo", mdps: "N/A", sdps : "S", support: "SS"});
 
+//function taking care of button onclick for options in dropdown menu
 $(document).ready(function(){
 	$("#panel1 .dropdown button").click(function(){
         resetOptions(1);
@@ -65,54 +68,8 @@ $(document).ready(function(){
          select4 = true;
 	});
 });
-function calculateElementalReaction(){
-    var elementsInTeam = [characters.get(lastChar[0]).Element,characters.get(lastChar[1]).Element, 
-                        characters.get(lastChar[2]).Element,characters.get(lastChar[3]).Element];
-    var reaction = new Boolean(false);  
-    console.log(score);
-    for(var i= 0; i<4;i++){ 
-        console.log("Current character: "+elementsInTeam[i])
-        if(elementsInTeam[i] == "Anemo"){ 
-            for(var j= 0; j<4;j++){ 
-              if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
-                 score+=30; 
-                 console.log("This has met");
-                 reaction =true; 
-              }       
-            }  
-        }else if(elementsInTeam[i] == "Geo"){ 
-            for(var j= 0; j<4;j++){ 
-                if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
-                   score+=30; 
-                   reaction =true; 
-                }       
-              }  
-        }else if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
-            for(var j= 0; j<4;j++){ 
-                if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro")|| (elementsInTeam[j] == "Electro" && elementsInTeam[i] == "Cryo") && j !=i){
-                   score+=30; 
-                   reaction =true; 
-                }       
-              }  
-        }else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
-            for(var j= 0; j<4;j++){ 
-              if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") || (elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Hydro") && j !=i){
-                 score+=45; 
-                 reaction =true; 
-              }       
-            }  
-        }else if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
-            for(var j= 0; j<4;j++){ 
-              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") || (elementsInTeam[i] == "Cryo" && elementsInTeam[j] == "Pyro") && j !=i){
-                 score+=40; 
-                 reaction =true; 
-              }       
-            }  
-        }
-    }
-    console.log(score); 
-}
 
+//function that redisplays options that can be displayed
 function resetOptions(panelNo){
         score = 0;
         //display all dropdown options for the previously selected character
@@ -159,48 +116,9 @@ function changeImage(obj, panelNo){
 function calcscore() {
     if(select1 && select2 && select3 && select4){ 
         score = 0;
-        //elemental resonance
-        //find number of same elements in team composition
-        var numAnemo,  numElectro, numGeo, numHydro, numCryo, numPyro = 0;
-        var charElement = "";
-        for(var i = 0; i<=3; i++){
-            charElement = characters.get(lastChar[i]).Element;
-            if(charElement == "Anemo"){
-                numAnemo++;
-            } else if(charElement == "Electro") {
-                numElectro++;
-            } else if(charElement == "Geo") {
-                numGeo++;
-            } else if(charElement == "Hydro") {
-                numHydro++;
-            } else if(charElement == "Cryo") {
-                numCryo++;
-            } else { //element is Pyro
-                numPyro++;
-            }
-            //determine elemental reactions
-            calculateElementalReaction(); 
-        }
 
-        //add points for elemental resonance
-        EResonanceWeights(numAnemo);
-        EResonanceWeights(numElectro);
-        EResonanceWeights(numGeo);
-        EResonanceWeights(numHydro);
-        EResonanceWeights(numCryo);
-        EResonanceWeights(numPyro);
-
-        //if 4 different element characters
-        if(numAnemo < 2 && numElectro < 2 && numGeo < 2 && numHydro < 2 && numCryo < 2 && numPyro < 2 ){
-            score+=10;
-        }
-
-
-        //Calculate effectiveness of character in the specific rolw
-        PositionWeights(characters.get(lastChar[0]).mdps);
-        PositionWeights(characters.get(lastChar[1]).sdps);
-        PositionWeights(characters.get(lastChar[2]).support);
-        PositionWeights(characters.get(lastChar[3]).support);
+        //calculate weights for positions chosen
+        calculatePosition();
 
         // call function to change rating html
         calcRating(score);
@@ -226,6 +144,7 @@ function calcRating(score){
     console.log(score);
 }
 
+//HELPER FUNCTIONS
 function PositionWeights(tier){
     switch(tier){
         case "SS":
@@ -249,5 +168,98 @@ function PositionWeights(tier){
 function EResonanceWeights(numelement){
     if(numelement>=2){
         score+=10;
+    }
+}
+
+function calculatePosition(){
+    //Calculate effectiveness of character in the specific rolw
+    PositionWeights(characters.get(lastChar[0]).mdps);
+    PositionWeights(characters.get(lastChar[1]).sdps);
+    PositionWeights(characters.get(lastChar[2]).support);
+    PositionWeights(characters.get(lastChar[3]).support);
+}
+
+function calculateResonance(){
+            //elemental resonance
+        //find number of same elements in team composition
+        var numAnemo,  numElectro, numGeo, numHydro, numCryo, numPyro = 0;
+        var charElement = "";
+        for(var i = 0; i<=3; i++){
+            charElement = characters.get(lastChar[i]).Element;
+            if(charElement == "Anemo"){
+                numAnemo++;
+            } else if(charElement == "Electro") {
+                numElectro++;
+            } else if(charElement == "Geo") {
+                numGeo++;
+            } else if(charElement == "Hydro") {
+                numHydro++;
+            } else if(charElement == "Cryo") {
+                numCryo++;
+            } else { //element is Pyro
+                numPyro++;
+            }
+        }
+
+        //add points for elemental resonance
+        EResonanceWeights(numAnemo);
+        EResonanceWeights(numElectro);
+        EResonanceWeights(numGeo);
+        EResonanceWeights(numHydro);
+        EResonanceWeights(numCryo);
+        EResonanceWeights(numPyro);
+
+        //if 4 different element characters
+        if(numAnemo < 2 && numElectro < 2 && numGeo < 2 && numHydro < 2 && numCryo < 2 && numPyro < 2 ){
+            score+=10;
+        }
+}
+
+
+//functino to calculate points for elemental reaction
+function calculateElementalReaction(){
+    var elementsInTeam = [characters.get(lastChar[0]).Element,characters.get(lastChar[1]).Element, 
+                        characters.get(lastChar[2]).Element,characters.get(lastChar[3]).Element];
+    var reaction = new Boolean(false);  
+    console.log(score);
+    for(var i= 0; i<4;i++){ 
+        console.log("Current character: "+elementsInTeam[i])
+        if(elementsInTeam[i] == "Anemo"){ 
+            for(var j= 0; j<4;j++){ 
+              if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
+                 score+=30; 
+                 console.log("This has met");
+                 reaction =true; 
+              }       
+            }  
+        }else if(elementsInTeam[i] == "Geo"){ 
+            for(var j= 0; j<4;j++){ 
+                if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
+                   score+=30; 
+                   reaction =true; 
+                }       
+              }  
+        }else if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
+            for(var j= 0; j<4;j++){ 
+                if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro")|| (elementsInTeam[j] == "Electro" && elementsInTeam[i] == "Cryo") && j !=i){
+                   score+=30; 
+                   reaction =true; 
+                }       
+              }  
+        }else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
+            for(var j= 0; j<4;j++){ 
+              if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") || (elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Hydro") && j !=i){
+                 score+=45; 
+                 reaction =true; 
+              }       
+            }  
+        }else if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
+            for(var j= 0; j<4;j++){ 
+              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") || (elementsInTeam[i] == "Cryo" && elementsInTeam[j] == "Pyro") && j !=i){
+                 score+=40; 
+                 reaction =true; 
+              }       
+            }  
+        }
     }
 }
