@@ -39,7 +39,7 @@ html {
         overflow: hidden;
       }
 
-      .item-feedback {
+      #item-feedback {
         grid-area: feedback;
         color:white; 
         background-color: rgba(0,43,38);

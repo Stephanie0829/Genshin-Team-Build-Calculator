@@ -7,6 +7,8 @@ var select1 = false;
 var select2 = false;
 var select3 = false;
 var select4 = false;
+//create total output string
+var outputstr = "insert feedback text";
 //map holding the characteristics of certain characters
 let characters = new Map();
 characters.set("Albedo",{Element: "Geo", mdps: "N/A", sdps: "SS", support: "SS"}); 
@@ -130,18 +132,18 @@ function calcRating(score){
     var starimg = document.getElementById("rating-img");
     starimg.style.display = "block";
     // divide score into 5 sections (consider a score out of 100 points)
-    if(score >=0 && score <= 99){ //1 star
+    if(score <= 86){ //1 star
         starimg.src = "media/Utilities/1star.png";
-    } else if(score >=100 && score <=199) {//2 star
+    } else if(score <=173) {//2 star
         starimg.src = "media/Utilities/2stars.png";
-    } else if(score >=200 && score <=299) {//3 star       
+    } else if(score <=260) {//3 star       
         starimg.src = "media/Utilities/3stars.png";
-    } else if(score >=300 && score <=399) {//4 star
+    } else if(score <=347) {//4 star
         starimg.src = "media/Utilities/4stars.png";
     } else {//5 star
         starimg.src = "media/Utilities/5stars.png";
     }
-    console.log(score);
+    document.getElementById("item-feedback").innerHTML = outputstr;
 }
 
 //HELPER FUNCTIONS
