@@ -1,7 +1,8 @@
 html {
     margin: 0;
     min-height: 100vh;
-    width: 100%
+    width: 100%;
+    overflow-y: scroll;
     }
 
     .item-top {
@@ -43,8 +44,9 @@ html {
         grid-area: feedback;
         color:white; 
         background-color: rgba(0,43,38);
-        text-align: center;
-        padding-top: 2vh;
+        /* text-align: center; */
+        height: fit-content;
+        padding-left: 5%;
       }
       
       .container {
@@ -203,4 +205,33 @@ html {
 
   #calcbtn:hover {
     background-color: rgb(190, 190, 190);
+  }
+
+  h3 {
+    color: #98d5d2;
+  }
+
+  h1 {
+    color :#ccecf5;
+  }
+
+  #firstchar {
+    color:#c3e7e6; 
+    font-style: italic;
+  }
+
+  #secondchar {
+    color:#c3e7e6; 
+    font-style: italic;
+    /* text-shadow: 2px 0 0px #6fa6af; */
+  }
+
+  #thirdchar {
+    color:#c3e7e6; 
+    font-style: italic;
+  }
+
+  #fourthchar {
+    color:#c3e7e6; 
+    font-style: italic;
   }

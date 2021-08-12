@@ -119,6 +119,13 @@ function calcscore() {
     if(select1 && select2 && select3 && select4){ 
         score = 0;
 
+        //create header
+        outputstr = "<h1>Team Analysis of "  + "<span id = 'firstchar'>" + lastChar[0] + "</span>" + " "
+        + "<span id = 'secondchar'>" + lastChar[1] + "</span>" + " "
+        + "<span id = 'thirdchar'>" + lastChar[2] + "</span>" + " "
+        + "<span id = 'fourthchar'>" + lastChar[3] + "</span>"
+        + "</h1>";
+
         //calculate weights for positions chosen
         calculatePosition();
 
@@ -143,6 +150,7 @@ function calcRating(score){
     } else {//5 star
         starimg.src = "media/Utilities/5stars.png";
     }
+    outputstr += "</br></br>";
     document.getElementById("item-feedback").innerHTML = outputstr;
 }
 
@@ -151,22 +159,25 @@ function PositionWeights(tier){
     switch(tier){
         case "SS":
             score += 55;
-            break;
+            return "SS";
         case "S":
             score += 45;
-            break;
+            return "S";
         case "A":
             score += 30;
-            break;
+            return "A";
         case "B":
             score += 20;
-            break;
+            return "B";
         case "C":
             score += 5;
-            break;
+            return "C";
+        default:
+            return "Unranked";
     }
 }
 
+//adds 10 for each duplicate element
 function EResonanceWeights(numelement){
     if(numelement>=2){
         score+=10;
@@ -174,12 +185,75 @@ function EResonanceWeights(numelement){
 }
 
 function calculatePosition(){
-    //Calculate effectiveness of character in the specific rolw
-    PositionWeights(characters.get(lastChar[0]).mdps);
-    PositionWeights(characters.get(lastChar[1]).sdps);
-    PositionWeights(characters.get(lastChar[2]).support);
-    PositionWeights(characters.get(lastChar[3]).support);
+    //Calculate effectiveness of character in the specific role
+    //update output text and call score updating functions
+    var mdpschar = PositionWeights(characters.get(lastChar[0]).mdps);
+    var sdpschar = PositionWeights(characters.get(lastChar[1]).sdps);
+    var support1char = PositionWeights(characters.get(lastChar[2]).support);
+    var support2char = PositionWeights(characters.get(lastChar[3]).support);
+
+    //title
+    outputstr += "<h3>Improve Character Selection with Alternatives (from tier above):</h3>"
+
+    //special case
+    if(mdpschar == "SS" && spdschar == "SS" && support1char == "SS" && support2char == "SS" )
+        outputstr += "<p>None - all positions are rated SS</p>"
+    else {
+        //call update output text functions
+        outputPosition(mdpschar, 'mdps', "Main dps");
+        outputPosition(sdpschar, 'sdps', "Sub dps");
+        outputPosition(support1char, 'support', "First support");
+        outputPosition(support2char, 'support', "Second support");
+    }
+    
 }
+
+//creates the proper output text
+function outputPosition(rating, position, textposition){
+    if(rating != "SS"){
+        outputstr += "<b> " + textposition +  " was rated: " + rating + "/SS</b></br>";
+        outputstr += "Alternatives: "
+        newlist = getBetterChars(rating, position);
+        for (var i = 0; i<newlist.length-1; i++){
+            outputstr+= newlist[i] + ", ";
+        }
+        outputstr+= newlist[i] + "</br>";
+    } else {
+        outputstr += "<b> " + textposition +  " was rated: SS/SS</b></br>"
+        outputstr += "No alternatives for improvement</br>";
+    }
+}
+
+//obtains the rank one above the selected character
+function getBetterChars(ranking, position) {
+    var nextrank = "Unranked";
+    var charlist = [];
+
+    //obtain rank above
+    for (let [key, value] of characters) {
+        switch(ranking){
+            case "Unranked":
+                nextrank = "C"
+                break;
+            case "C":
+                nextrank = "B"
+                break;
+            case "B":
+                nextrank = "A"
+                break;
+            case "A":
+                nextrank = "S"
+                break;
+            case "S":
+                nextrank = "SS"
+                break;
+        }
+        //put each character that is a rank above within an array
+      if (value[position] == nextrank)
+        charlist.push(key);
+    }
+    return charlist;
+  }
 
 function calculateResonance(){
             //elemental resonance
