@@ -104,7 +104,7 @@ function changeImage(obj, panelNo){
         document.getElementById("img" + panelNo).style.backgroundImage = "url('media/Characters/Gacha-Splashes/" + characterText + ".png')";
 
         //remove dropdown options for selected character from all panels
-        changeAllPanels(characterText, "none");
+        changeAllPanels(characterText, "none", panelNo);
 
         //make sure only one traveler can be selected (remove dropdown options for other traveler from all panels not itself)
         if(characterText == "Traveler(Anemo)"){
