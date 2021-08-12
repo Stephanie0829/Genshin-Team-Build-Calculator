@@ -223,7 +223,7 @@ function calculatePosition(){
     outputstr += "*Note: Alternatives are characters for the position ranked one tier above the selected character</br></br>"
 
     //special case
-    if(mdpschar == "SS" && spdschar == "SS" && support1char == "SS" && support2char == "SS" )
+    if(mdpschar == "SS" && sdpschar == "SS" && support1char == "SS" && support2char == "SS" )
         outputstr += "<p>None - all positions are rated SS</p>"
     else {
         //call update output text functions
