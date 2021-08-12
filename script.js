@@ -222,6 +222,7 @@ function outputPosition(rating, position, textposition){
         outputstr += "<b> " + textposition +  " was rated: SS/SS</b></br>"
         outputstr += "No alternatives for improvement</br>";
     }
+    outputstr += "</br>";
 }
 
 //obtains the rank one above the selected character
