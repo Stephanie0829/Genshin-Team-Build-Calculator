@@ -1,5 +1,5 @@
 //array holding the last selected character
-var lastChar = ["Xiao", "Albedo", "Kazuha", "Qiqi"];
+var lastChar = ["Xiao", "Zhongli", "Kazuha", "Qiqi"];
 //global score variable used for calculating stars
 var score = 0;
 //booleans to determine if all characters selected
@@ -129,6 +129,12 @@ function calcscore() {
         //calculate weights for positions chosen
         calculatePosition();
 
+        //calculate resonance weights
+        calculateResonance();
+
+        //calculate elemental reactions
+        calculateElementalReaction();
+
         // call function to change rating html
         calcRating(score);
     }
@@ -178,9 +184,29 @@ function PositionWeights(tier){
 }
 
 //adds 10 for each duplicate element
-function EResonanceWeights(numelement){
+function EResonanceWeights(numelement, element){
     if(numelement>=2){
         score+=10;
+        switch(element){
+            case "pyro":
+                outputstr += "Fervent Flames</br>\u2265 2 pyro: Elemental and Physical RES +15%</br></br>"
+                break;
+            case "cryo":
+                outputstr += "Shattering Ice</br>\u2265 2 cryo: 40% less time affected by electro element. For enemies affected by cryo, CRIT rate is incresed by 15%</br></br>"
+                break;
+            case "hydro":
+                outputstr += "Soothing Waters</br>\u2265 2 hydro: Pyro effects are less probable (by 40% of the time). 30% more healing.</br></br>"
+                break;
+            case "geo":
+                outputstr += "Enduring Rock</br>\u2265 2 geo: 15% more shield strength. Characters with shield have 15% more DMG, and for 15 seconds attacked enemies will have 20% less geo RES</br></br>"
+                break;
+            case "anemo":
+                outputstr += "Impetuous Winds</br>\u2265 2 anemo: Consumed stamina decreased by 15%, faster movement speed (by 10%), and skill CD a shorter time (by 5%)</br></br>"
+                break;
+            case "electro":
+                outputstr += "High Voltage</br>\u2265 2 electro: Overload, electro-charge, and superconduct are guaranteed to create an electro particle with CD of 5 seconds. Cryo effects are less probable (by 40% of the time)</br></br>"
+                break;
+        }
     }
 }
 
@@ -260,7 +286,12 @@ function getBetterChars(ranking, position) {
 function calculateResonance(){
             //elemental resonance
         //find number of same elements in team composition
-        var numAnemo,  numElectro, numGeo, numHydro, numCryo, numPyro = 0;
+        var numAnemo = 0;
+        var numElectro = 0;
+        var numGeo = 0;
+        var numHydro = 0;
+        var numCryo = 0;
+        var numPyro = 0;
         var charElement = "";
         for(var i = 0; i<=3; i++){
             charElement = characters.get(lastChar[i]).Element;
@@ -279,17 +310,22 @@ function calculateResonance(){
             }
         }
 
-        //add points for elemental resonance
-        EResonanceWeights(numAnemo);
-        EResonanceWeights(numElectro);
-        EResonanceWeights(numGeo);
-        EResonanceWeights(numHydro);
-        EResonanceWeights(numCryo);
-        EResonanceWeights(numPyro);
+        outputstr += "<h3>Elemental resonance:</h3>";
 
+        //add points for elemental resonance
+        EResonanceWeights(numAnemo, "anemo");
+        EResonanceWeights(numElectro, "electro");
+        EResonanceWeights(numGeo, "geo");
+        EResonanceWeights(numHydro, "hydro");
+        EResonanceWeights(numCryo, "cryo");
+        EResonanceWeights(numPyro, "pyro");
+
+        console.log(numAnemo, numElectro, numGeo, numHydro, numCryo, numPyro)
         //if 4 different element characters
         if(numAnemo < 2 && numElectro < 2 && numGeo < 2 && numHydro < 2 && numCryo < 2 && numPyro < 2 ){
             score+=10;
+            console.log("all 4 elements")
+            outputstr += "Protective Canopy: </br>4 different elemental characters: All Elemental RES +15%, Physical RES +15%</br></br>"
         }
 }
 
