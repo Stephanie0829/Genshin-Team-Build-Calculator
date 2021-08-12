@@ -193,7 +193,8 @@ function calculatePosition(){
     var support2char = PositionWeights(characters.get(lastChar[3]).support);
 
     //title
-    outputstr += "<h3>Improve Character Selection with Alternatives (from tier above):</h3>"
+    outputstr += "<h3>Improve Character Selection with Alternatives:</h3>"
+    outputstr += "*Note: Alternatives are characters for the position ranked one tier above the selected character</br></br>"
 
     //special case
     if(mdpschar == "SS" && spdschar == "SS" && support1char == "SS" && support2char == "SS" )
