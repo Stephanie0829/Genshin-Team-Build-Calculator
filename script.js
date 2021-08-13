@@ -383,6 +383,23 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }  
-        }
+        }else if(elementsInTeam[i] == "Electro" || elementsInTeam[i] == "Pyro"){
+           for(var j= 0; j<4;j++){ 
+              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") && j !=i){
+                 score+=50;
+                 outputstr += "Overload with "+lastChar[i]+" and "+lastChar[j]+"</br>"
+                 reaction =true; 
+              }       
+            }	
+	} else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){	
+            for(var j= 0; j<4;j++){ 
+              if(elementsInTeam[j] == "Hydro" && elementsInTeam[j] == "Cryo" && j !=i){
+                 score+=25; 
+                 outputstr += "Freeze with "+lastChar[i]+" and "+lastChar[j]+"</br>"; 
+                 console.log("This has met");
+                 reaction =true; 
+              }       
+            }
+	}
     }
 }
