@@ -351,7 +351,8 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }  
-        }else if(elementsInTeam[i] == "Geo"){ 
+        }
+	if(elementsInTeam[i] == "Geo"){ 
             for(var j= 0; j<4;j++){ 
                 if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
                    score+=25;
@@ -359,7 +360,8 @@ function calculateElementalReaction(){
                    reaction =true; 
                 }       
               }  
-        }else if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
+        }
+	if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
             for(var j= 0; j<4;j++){ 
                 if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro") && j !=i){
                    score+=50;
@@ -367,7 +369,8 @@ function calculateElementalReaction(){
                    reaction =true; 
                 }       
               }  
-        }else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
+        } 
+	if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
             for(var j= 0; j<4;j++){ 
               if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") && j !=i){
                  score+=70;
@@ -375,7 +378,8 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }  
-        }else if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
+        }
+	if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
             for(var j= 0; j<4;j++){ 
               if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") && j !=i){
                  score+=60;
@@ -383,7 +387,8 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }  
-        }else if(elementsInTeam[i] == "Electro" || elementsInTeam[i] == "Pyro"){
+	}
+	 if(elementsInTeam[i] == "Electro" || elementsInTeam[i] == "Pyro"){
            for(var j= 0; j<4;j++){ 
               if((elementsInTeam[i] == "Electro" && elementsInTeam[j] == "Pyro") && j !=i){
                  score+=50;
@@ -391,7 +396,8 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }	
-	} else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Cryo"){	
+	}
+	 if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Cryo"){	
             for(var j= 0; j<4;j++){ 
               if(elementsInTeam[j] == "Hydro" && elementsInTeam[j] == "Cryo" && j !=i){
                  score+=25; 
