@@ -399,7 +399,7 @@ function calculateElementalReaction(){
 	}
 	 if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Cryo"){	
             for(var j= 0; j<4;j++){ 
-              if(elementsInTeam[j] == "Hydro" && elementsInTeam[j] == "Cryo" && j !=i){
+              if(elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Cryo" && j !=i){
                  score+=25; 
                  outputstr += "Freeze with "+lastChar[i]+" and "+lastChar[j]+"</br>"; 
                  console.log("This has met");
