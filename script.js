@@ -13,7 +13,7 @@ var outputstr = "insert feedback text";
 let characters = new Map();
 characters.set("Albedo",{Element: "Geo", mdps: "N/A", sdps: "SS", support: "SS"}); 
 characters.set("Amber",{Element: "Pyro", mdps:"C",sdps:"C",support:"N/A"});
-characters.set("Ayaka",{Element: "Cryo", mdps: "N/A", sdps: "N/A", support: "N/A"});  
+characters.set("Ayaka",{Element: "Cryo", mdps: "SS", sdps: "S", support: "N/A"});  
 characters.set("Barbara",{Element: "Hydro", mdps: "SS", sdps: "S", support: "A"});  
 characters.set("Beidou",{Element: "Electro", mdps: "B", sdps: "B", support: "N/A"});
 characters.set("Bennett",{Element: "Pyro", mdps: "N/A", sdps: "N/A", support: "SS"});  
@@ -36,7 +36,6 @@ characters.set("Noelle", {Element: "Geo", mdps: "A", sdps : "N/A", support: "B"}
 characters.set("Qiqi", {Element: "Cryo", mdps: "N/A", sdps : "N/A", support: "A"});
 characters.set("Razor", {Element: "Electro", mdps: "A", sdps : "N/A", support: "N/A"});
 characters.set("Sayu", {Element: "Anemo", mdps: "B", sdps : "A", support: "A"});
-characters.set("Yoimiya",{Element: "Pyro", mdps: "SS", sdps: "N/A", support: "N/A"});  
 characters.set("Sucrose", {Element: "Anemo", mdps: "N/A", sdps : "A", support: "SS"});
 characters.set("Tartaglia", {Element: "Hydro", mdps: "S", sdps : "S", support: "A"});
 characters.set("Traveler(Anemo)", {Element: "Anemo", mdps: "N/A", sdps : "C", support: "N/A"});
