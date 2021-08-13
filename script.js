@@ -154,7 +154,7 @@ function calcRating(score){
         starimg.src = "media/Utilities/2stars.png";
     } else if(score <=260) {//3 star       
         starimg.src = "media/Utilities/3stars.png";
-    } else if(score <=347) {//4 star
+    } else if(score <=299) {//4 star
         starimg.src = "media/Utilities/4stars.png";
     } else {//5 star
         starimg.src = "media/Utilities/5stars.png";
@@ -189,7 +189,7 @@ function PositionWeights(tier){
 //adds 10 for each duplicate element
 function EResonanceWeights(numelement, element){
     if(numelement>=2){
-        score+=10;
+        score+=5;
         switch(element){
             case "pyro":
                 outputstr += "Fervent Flames</br>\u2265 2 pyro: Elemental and Physical RES +15%</br></br>"
@@ -326,7 +326,7 @@ function calculateResonance(){
         console.log(numAnemo, numElectro, numGeo, numHydro, numCryo, numPyro)
         //if 4 different element characters
         if(numAnemo < 2 && numElectro < 2 && numGeo < 2 && numHydro < 2 && numCryo < 2 && numPyro < 2 ){
-            score+=10;
+            score+=5;
             console.log("all 4 elements")
             outputstr += "Protective Canopy: </br>4 different elemental characters: All Elemental RES +15%, Physical RES +15%</br></br>"
         }
@@ -339,12 +339,15 @@ function calculateElementalReaction(){
                         characters.get(lastChar[2]).Element,characters.get(lastChar[3]).Element];
     var reaction = new Boolean(false);  
     console.log(score);
+    outputstr += "<h3>Elemental Reactions:</h3>"; 
+    outputstr += "Your team is capable of the following reactions:</br>"; 
     for(var i= 0; i<4;i++){ 
         console.log("Current character: "+elementsInTeam[i])
         if(elementsInTeam[i] == "Anemo"){ 
             for(var j= 0; j<4;j++){ 
               if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
-                 score+=30; 
+                 score+=25; 
+                 outputstr += "Swirl with "+lastChar[i]+" and "+lastChar[j]+"</br>"; 
                  console.log("This has met");
                  reaction =true; 
               }       
@@ -352,28 +355,32 @@ function calculateElementalReaction(){
         }else if(elementsInTeam[i] == "Geo"){ 
             for(var j= 0; j<4;j++){ 
                 if(elementsInTeam[j] == "Hydro" || elementsInTeam[j] == "Cryo" || elementsInTeam[j] == "Electro" || elementsInTeam[j] == "Pyro" && j !=i){
-                   score+=30; 
+                   score+=25;
+                   outputstr += "Crystalize with "+lastChar[i]+" and "+lastChar[j]+"</br>";
                    reaction =true; 
                 }       
               }  
         }else if(elementsInTeam[i]== "Electro" || elementsInTeam[i] == "Cryo"){ 
             for(var j= 0; j<4;j++){ 
-                if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro")|| (elementsInTeam[j] == "Electro" && elementsInTeam[i] == "Cryo") && j !=i){
-                   score+=30; 
+                if((elementsInTeam[j] == "Cryo"  && elementsInTeam[i] == "Electro") && j !=i){
+                   score+=50;
+                   outputstr += "Superconduct with "+lastChar[i]+" and "+lastChar[j]+"</br>" 
                    reaction =true; 
                 }       
               }  
         }else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){ 
             for(var j= 0; j<4;j++){ 
-              if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") || (elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Hydro") && j !=i){
-                 score+=45; 
+              if((elementsInTeam[i] == "Hydro" && elementsInTeam[j] == "Pyro") && j !=i){
+                 score+=70;
+                 outputstr += "Vaporize with "+lastChar[i]+" and "+lastChar[j]+"</br>"  
                  reaction =true; 
               }       
             }  
         }else if(elementsInTeam[i] == "Cryo" || elementsInTeam[i] == "Pyro"){
             for(var j= 0; j<4;j++){ 
-              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") || (elementsInTeam[i] == "Cryo" && elementsInTeam[j] == "Pyro") && j !=i){
-                 score+=40; 
+              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") && j !=i){
+                 score+=60;
+                 outputstr += "Melt with "+lastChar[i]+" and "+lastChar[j]+"</br>"
                  reaction =true; 
               }       
             }  
