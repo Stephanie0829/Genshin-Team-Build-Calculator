@@ -391,7 +391,7 @@ function calculateElementalReaction(){
                  reaction =true; 
               }       
             }	
-	} else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Pyro"){	
+	} else if(elementsInTeam[i] == "Hydro" || elementsInTeam[i] == "Cryo"){	
             for(var j= 0; j<4;j++){ 
               if(elementsInTeam[j] == "Hydro" && elementsInTeam[j] == "Cryo" && j !=i){
                  score+=25; 
