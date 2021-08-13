@@ -385,7 +385,7 @@ function calculateElementalReaction(){
             }  
         }else if(elementsInTeam[i] == "Electro" || elementsInTeam[i] == "Pyro"){
            for(var j= 0; j<4;j++){ 
-              if((elementsInTeam[i] == "Pyro" && elementsInTeam[j] == "Cryo") && j !=i){
+              if((elementsInTeam[i] == "Electro" && elementsInTeam[j] == "Pyro") && j !=i){
                  score+=50;
                  outputstr += "Overload with "+lastChar[i]+" and "+lastChar[j]+"</br>"
                  reaction =true; 
