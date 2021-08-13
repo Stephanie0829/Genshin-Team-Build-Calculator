@@ -220,7 +220,7 @@ function calculatePosition(){
 
     //title
     outputstr += "<h3>Improve Character Selection with Alternatives:</h3>"
-    outputstr += "*Note: Alternatives are characters for the position ranked one tier above the selected character</br></br>"
+    outputstr += "*Note: Alternatives are characters for the position ranked one tier above the selected character</br>* For reference, the tiers from lowest to highest: Unranked, C, B, A, S, SS</br></br>"
 
     //special case
     if(mdpschar == "SS" && sdpschar == "SS" && support1char == "SS" && support2char == "SS" )
@@ -238,7 +238,7 @@ function calculatePosition(){
 //creates the proper output text
 function outputPosition(rating, position, textposition){
     if(rating != "SS"){
-        outputstr += "<b> " + textposition +  " was rated: " + rating + "/SS</b></br>";
+        outputstr += "<b> " + textposition +  " was rated: " + rating + "</b></br>";
         outputstr += "Alternatives: "
         newlist = getBetterChars(rating, position);
         for (var i = 0; i<newlist.length-1; i++){
@@ -246,7 +246,7 @@ function outputPosition(rating, position, textposition){
         }
         outputstr+= newlist[i] + "</br>";
     } else {
-        outputstr += "<b> " + textposition +  " was rated: SS/SS</b></br>"
+        outputstr += "<b> " + textposition +  " was rated: SS</b></br>"
         outputstr += "No alternatives for improvement</br>";
     }
     outputstr += "</br>";
