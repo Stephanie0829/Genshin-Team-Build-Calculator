@@ -220,7 +220,7 @@ function calculatePosition(){
 
     //title
     outputstr += "<h3>Improve Character Selection with Alternatives:</h3>"
-    outputstr += "*Note: Alternatives are characters for the position ranked one tier above the selected character</br>* For reference, the tiers from lowest to highest: Unranked, C, B, A, S, SS</br></br>"
+    outputstr += "* Note: Alternatives are characters for the position ranked one tier above the selected character</br>* For reference, the tiers from lowest to highest: Unranked, C, B, A, S, SS</br></br>"
 
     //special case
     if(mdpschar == "SS" && sdpschar == "SS" && support1char == "SS" && support2char == "SS" )
