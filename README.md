@@ -13,7 +13,7 @@ Genshin Impact calculation widget allowing users to select characters, and calcu
   * Elemental resonance
     * Taken into account if minimum 2 same elements, or if 4 different elements within the 4 selected characters
 ## Future thoughts
-* Could imporove upon by including data analysis on specific attributes of characters through simulation against enemies
+* Could improve upon by including data analysis on specific attributes of characters through simulation against enemies
 * Can factor in elemental damage attacks intrinsic to specific characters
 ## Sources for media:
   * 5-star rating image supplied by the authors of this project (used ibisPaint X)
